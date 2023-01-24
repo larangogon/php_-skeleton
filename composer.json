@@ -1,0 +1,44 @@
+{
+    "name": "larangogon/php-rabbitmq",
+    "description": "testing php and rabbit mq",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "rabbitMQ",
+        "larangogon-client",
+        "message"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Larangogon\\PhpRabbitmq\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PlacetoPay\\TspClient\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Leidy Arango",
+            "email": "larangogon1@uniminuto.edu.co",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpunit/phpunit": "^9.5",
+        "easy-http/mock-builder": "^1.1.0"
+    },
+    "scripts": {
+        "tests": "phpunit --stop-on-error --stop-on-failure",
+        "tests-check":  "@tests --testdox",
+        "tests-xml": "@tests --coverage-clover coverage/phpunit.coverage.xml",
+        "phpunit-html": "@tests --coverage-html coverage/html",
+        "php-cs": "phpcs --standard=PSR2 --ignore=tests/coverage app/ tests/",
+        "php-cs-fixer": "vendor/bin/php-cs-fixer fix --config=.php_cs"
+    }
+}
