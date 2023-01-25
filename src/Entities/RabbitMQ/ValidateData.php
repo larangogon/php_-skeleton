@@ -8,7 +8,7 @@ use Larangogon\PhpRabbitmq\Validator\Validate;
 class ValidateData extends Validate
 {
     protected array $required = [
-        'data' => DataTypes::STRING_TYPE,
+        'date' => DataTypes::STRING_TYPE,
         'message' => DataTypes::STRING_TYPE,
         'eventType' => DataTypes::STRING_TYPE,
     ];

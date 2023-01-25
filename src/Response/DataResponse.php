@@ -2,31 +2,27 @@
 
 namespace Larangogon\PhpRabbitmq\Response;
 
+use Larangogon\PhpRabbitmq\Contracts\RequestContract;
 use Larangogon\PhpRabbitmq\Contracts\ResponseContract;
 
 class DataResponse implements ResponseContract
 {
-    protected array $body = [];
-
-    public function __construct(private $data, protected array $auth)
+    public function __construct(private $data, protected array $auth, private readonly RequestContract $request)
     {
-        if ($_data = json_decode($data->getBody(), true)) {
-            $this->body = $_data;
-        }
     }
 
-    public function getBody(): array
+    public function getMessage(): array
     {
-        return $this->body;
+        return $this->data;
     }
 
-    public function getHeader(): array
+    public function getResponse(): RequestContract
     {
-        return $this->data->getHeaders();
+        return $this->request;
     }
 
-    public function getCode(): int
+    public function getAuth(): array
     {
-        return $this->data->getStatusCode();
+        return $this->auth;
     }
 }

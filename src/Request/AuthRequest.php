@@ -7,20 +7,40 @@ use Larangogon\PhpRabbitmq\Contracts\AuthContract;
 class AuthRequest implements AuthContract
 {
     public function __construct(
-        private readonly string $url,
-        private readonly string $apiKey,
-        private readonly string $requestId,
-        private readonly string $sharedSecret,
+        private readonly string $port,
+        private readonly string $host,
+        private readonly string $user,
+        private readonly string $password,
     ) {
     }
 
     public function getCredentials(): array
     {
         return [
-            'url' => $this->url,
-            'apiKey' => $this->apiKey,
-            'requestId' => $this->requestId,
-            'sharedSecret' => $this->sharedSecret,
+            'port' => $this->port,
+            'host' => $this->host,
+            'user' => $this->user,
+            'password' => $this->password,
         ];
+    }
+
+    public function getHost(): string
+    {
+        return $this->host;
+    }
+
+    public function getPort(): string
+    {
+        return $this->port;
+    }
+
+    public function getUser(): string
+    {
+        return $this->user;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
     }
 }

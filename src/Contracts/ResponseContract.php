@@ -4,9 +4,9 @@ namespace Larangogon\PhpRabbitmq\Contracts;
 
 interface ResponseContract
 {
-    public function getHeader(): array;
+    public function getMessage(): array;
 
-    public function getBody(): array;
+    public function getResponse(): RequestContract;
 
-    public function getCode(): int;
+    public function getAuth(): array;
 }
