@@ -1,1 +1,1 @@
-# php_rabbitMq
+# php_library_skeleton
